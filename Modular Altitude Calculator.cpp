@@ -1,6 +1,6 @@
 /**
 *   CMPSC 201 - Project 1*
-*   Modular)Altitude_Calculator.cpp
+*   Modular_Altitude_Calculator.cpp
 *   Purpose: To recreate the prior altitude calculator utilizing C++ features such as vector objects, functions, and other files/namespaces
 * 
 *   @author Aidan Block
