@@ -38,23 +38,23 @@ namespace PolyFunc {
 
 	vector<double> euclLinDivide(vector<double> coeffs, const double x) {
 		for (int i = 1; i < coeffs.size(); ++i) { // Applying the euclidean division algorithm to the coeffs vector variable copy of the original vector
-			coeffs.at(i) += x * coeffs.at(i - 1);
+			coeffs.at(i) += x * coeffs.at(i - 1); 
 		}
 		coeffs.pop_back(); // Popping off the remainder term, which is not necessary here.
 		return coeffs; // Returning the vector object reference
 	}
 
 	double approxRoot(const vector<double>& coeffs, double x) {
-		double x = EPSILON + 1.0, v, a; //Starting x a little off from the EPSILON bound checked by the for loop
+		double y = EPSILON + 1.0,  v, a; //Starting x a little off from the EPSILON bound checked by the for loop
 
-		for (unsigned i = 0; (fabs(x) > EPSILON) && (i < LOOP_CAP); i++) {
+		for (unsigned i = 0; (fabs(y) > EPSILON) && (i < LOOP_CAP); i++) {
 			// Storing the variables useful for the evaluation
 			y = evalPoly(coeffs, x);
 			v = evalDeriv(coeffs, x);
 			a = evalSecDeriv(coeffs, x);
 			
 			// Calculating the numerator and the denominator for Haley's method
-			double denom = (2.0 * v * v - x * a), num = 2.0 * x * v;
+			double denom = (2.0 * v * v - y * a), num = 2.0 * y * v;
 			
 			if (denom == 0.0) { denom = EPSILON; } // Checking for the exceedingly rare case where the denominator is actually flat out just 0.0
 			
